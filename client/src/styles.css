@@ -387,12 +387,12 @@ button {
 }
 
 .main-content.sidebar-expanded {
-  transition: width 0.3s ease";
+  transition: width 0.3s ease;
 
 }
 
 .main-content.sidebar-collapsed {
-  transition: width 0.3s ease";
+  transition: width 0.3s ease;
 
 }
 
