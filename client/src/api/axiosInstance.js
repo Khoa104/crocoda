@@ -7,6 +7,7 @@ const API_BASE_URL_LOCAL = import.meta.env.VITE_API_URL_local;
 
 // Kiểm tra hostname hiện tại
 const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+// const isLocalhost = false;
 
 const api = axios.create({
   baseURL: isLocalhost ? API_BASE_URL_LOCAL : API_BASE_URL,

@@ -42,9 +42,9 @@ app.use("/scm", scmRoutes);
 
 // app.use("/api/products", productRoutes);
 // Health check route
-app.get("/", (req, res) => {
-  res.send("✅ Crocoda backend is running on Render!");
-});
+// app.get("/", (req, res) => {
+//   res.send("✅ Crocoda backend is running on Render!");
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
