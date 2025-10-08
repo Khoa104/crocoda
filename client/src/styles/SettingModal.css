@@ -1,0 +1,79 @@
+/* Trong file CSS của bạn (ví dụ: main.css hoặc SettingsModal.css) */
+
+.setting-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color:var(--backdrop-color); /* Nền mờ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-modal-backdrop); /* Đảm bảo modal hiển thị trên cùng */
+}
+
+.setting-modal-content {
+  background-color: var(--bg-surface); /* Sử dụng biến CSS cho màu nền */
+  color: var(--text-primary); /* Sử dụng biến CSS cho màu chữ */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  width: 90%;
+  max-width: 500px; /* Chiều rộng tối đa của modal */
+  position: relative;
+  animation: fadeIn 0.3s ease-out; /* Hiệu ứng xuất hiện */
+}
+
+.setting-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-light); /* Đường viền dưới tiêu đề */
+  padding-bottom: 10px;
+}
+
+.setting-modal-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.modal-close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.modal-close-button:hover {
+  background-color: var(--bg-hover-light);
+}
+
+/* .modal-body {
+  /* Tùy chỉnh khoảng cách và bố cục cho nội dung cài đặt */
+/* }  */
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border-light); /* Đường phân cách giữa các cài đặt */
+}
+
+.setting-item:last-child {
+  border-bottom: none; /* Không có đường phân cách cho mục cuối cùng */
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

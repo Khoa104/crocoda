@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/croco.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Inventory WEB</title>
+    <script>
+      // Đặt theme trực tiếp vào body ngay khi trang tải
+      const theme = localStorage.getItem("theme") || "light";
+      //document.documentElement.classList.add(theme === "dark" ? "dark-mode" : "light");
+      document.documentElement.setAttribute('data-theme', theme);
+      // console.log('a');
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

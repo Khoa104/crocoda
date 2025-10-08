@@ -1,0 +1,312 @@
+/* --- src/styles/StackView.css --- */
+
+/* --- Biến CSS (Đảm bảo các biến này được định nghĩa ở đâu đó global, ví dụ trong index.css) --- */
+:root {
+  --colorNeutralBackground1: #ffffff;
+  /* Nền trắng */
+  /* --colorNeutralBackground2: #f0f2f5; */
+  /* Nền xám nhạt */
+  /* --colorNeutralBackground3: #e2e8f0; */
+  /* Nền xám đậm hơn */
+  /* --colorNeutralBackground1Hover: #f5f5f5;
+  --colorNeutralBackground2Hover: #e0e2e5;
+  --colorBrandBackground1: #2563eb; */
+  /* Màu xanh chủ đạo */
+  /* --colorBrandBackground1Hover: #1d4ed8;
+  --colorNeutralForeground1: #334155; */
+  /* Màu chữ đậm */
+  /* --colorNeutralForeground2: #64748b; */
+  /* Màu chữ xám */
+  /* --colorBrandForeground1: #ffffff; */
+  /* Màu chữ trắng trên nền brand */
+  /* --colorNeutralStroke1: #ccc; */
+  /* Màu border */
+  --colorShadow: rgba(0, 0, 0, 0.1);
+
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+
+  --borderRadius-sm: 4px;
+  --borderRadius-md: 6px;
+
+  --fontSize-sm: 14px;
+  --fontWeight-medium: 500;
+}
+
+/* --- Container tổng thể --- */
+.stackview-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  justify-content: space-between;
+}
+
+.stackview-page {
+  display: flex;
+  flex-direction: column;
+  height: -webkit-fill-available;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.stackview-component {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  contain: strict;
+  flex: auto;
+}
+
+/* --- Control Panel (thanh điều hướng trên cùng) --- */
+.control-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Đẩy các phần sang hai bên */
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--colorNeutralBackground2);
+  /* border-bottom: 1px solid var(--colorNeutralStroke1); */
+  /* box-shadow: 0 1px 3px var(--colorShadow); */
+  flex-shrink: 0;
+  /* Ngăn không cho panel bị co lại */
+  height: 24px;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  /* Khoảng cách giữa nút back và breadcrumb */
+}
+
+/* --- Nút Quay Lại --- */
+.button.back-button {
+  padding: var(--spacing-xs);
+  /* Padding vuông cho icon */
+  min-width: 32px;
+  /* Kích thước cố định cho nút icon */
+  height: 32px;
+  border-radius: var(--borderRadius-sm);
+  background-color: var(--colorNeutralBackground2);
+  color: var(--colorNeutralForeground2);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  border: none;
+}
+
+.button.back-button:hover:not(:disabled) {
+  background-color: var(--secondary-hover-color);
+  color: var(--text-inverted);
+}
+
+.button.back-button:disabled {
+  opacity: 0.5;
+  /* cursor: not-allowed; */
+  background-color: var(--colorNeutralBackground2);
+  color: var(--colorNeutralForeground2);
+}
+
+/* --- Breadcrumb Section --- */
+.breadcrumb-section {
+  flex-grow: 1;
+  /* Cho phép breadcrumb chiếm không gian còn lại */
+  display: flex;
+  align-items: center;
+  /* overflow: hidden; */
+  /* Có thể cần nếu breadcrumb quá dài */
+}
+
+.breadcrumb-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  /* Bỏ dấu chấm mặc định của ul */
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap;
+  /* Ngăn các mục xuống dòng */
+  /* overflow-x: auto; */
+  /* Cho phép scroll ngang nếu quá dài */
+  scrollbar-width: none;
+  /* Ẩn scrollbar Firefox */
+  -ms-overflow-style: none;
+  /* Ẩn scrollbar IE and Edge */
+}
+
+.breadcrumb-list::-webkit-scrollbar {
+  /* Ẩn scrollbar Chrome, Safari, Opera */
+  display: none;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  /* Padding cho mỗi mục */
+  border-radius: var(--borderRadius-sm);
+  white-space: nowrap;
+  /* Ngăn wrap */
+  font-size: var(--fontSize-sm);
+  font-weight: var(--fontWeight-medium);
+  color: var(--colorNeutralForeground2);
+  /* Màu mặc định */
+}
+
+/* Các mục breadcrumb có thể click (link) */
+.breadcrumb-link-item {
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.breadcrumb-link-item:hover {
+  background-color: var(--colorNeutralBackground2);
+  /* Nền xám nhạt khi hover */
+  color: var(--colorNeutralForeground1);
+  /* Chữ đậm hơn */
+}
+
+/* Tab hiện tại */
+.breadcrumb-current-item {
+  background-color: var(--colorBrandBackground1);
+  /* Nền xanh cho tab hiện tại */
+  color: var(--colorBrandForeground1);
+  /* Chữ trắng */
+  cursor: default;
+  /* Không click được */
+}
+
+/* Dấu "..." cho các tab ẩn */
+.breadcrumb-ellipsis-item {
+  position: relative;
+  /* Quan trọng cho dropdown */
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  background-color: var(--colorNeutralBackground2);
+  /* Nền cho nút "..." */
+  color: var(--colorNeutralForeground1);
+  cursor: pointer;
+}
+
+.breadcrumb-ellipsis-item:hover {
+  background-color: var(--colorNeutralBackground3);
+}
+
+.button.ellipsis-button {
+  background: none;
+  border: none;
+  color: inherit;
+  /* Kế thừa màu từ cha */
+  padding: 0;
+  line-height: 1;
+  /* Căn chỉnh icon */
+}
+
+/* Dropdown của hidden tabs */
+.hidden-tabs-dropdown {
+  position: absolute;
+  top: calc(100% + var(--spacing-xxs));
+  /* Ngay dưới nút '...' */
+  left: 0;
+  background-color: var(--colorNeutralBackground1);
+  border: 1px solid var(--colorNeutralStroke1);
+  border-radius: var(--borderRadius-sm);
+  box-shadow: 0 2px 8px var(--colorShadow);
+  z-index: var(--z-index-dropdown);
+  /* Rất quan trọng để hiển thị trên các nội dung khác */
+  min-width: 180px;
+  padding: var(--spacing-xxs) 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown-tab-item {
+  display: block;
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  /* overflow: hidden; */
+  text-overflow: ellipsis;
+  color: var(--colorNeutralForeground1);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.dropdown-tab-item:hover {
+  background-color: var(--colorNeutralBackground2);
+}
+
+/* Dấu phân cách Breadcrumb */
+.breadcrumb-separator {
+  color: var(--colorNeutralForeground2);
+  margin: 0 var(--spacing-xxs);
+  font-size: var(--fontSize-sm);
+}
+
+/* --- Middle Section (Search Input) --- */
+.middle-section {
+  flex-grow: 1;
+  /* Cho phép ô tìm kiếm mở rộng */
+  max-width: 300px;
+  /* Giới hạn chiều rộng của ô tìm kiếm */
+  margin: 0 var(--spacing-md);
+  /* Khoảng cách hai bên */
+}
+
+.search-input.form-input {
+  /* Kết hợp với class form-input nếu có */
+  width: 100%;
+  padding: var(--spacing-xxs) var(--spacing-xs);
+  border: 1px solid var(-border-light);
+  border-radius: var(--borderRadius-sm);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-input.form-input:focus {
+  border-color: var(--border-light);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+  /* Shadow nhẹ khi focus */
+}
+
+/* --- Right Section (View Type Selector) --- */
+.view-type-selector {
+  display: flex;
+  gap: var(--spacing-xxs);
+  /* Khoảng cách giữa các nút view type */
+}
+
+.button.view-type-button {
+  padding: var(--spacing-xs);
+  /* Padding vuông cho icon */
+  min-width: 32px;
+  height: 32px;
+  border-radius: var(--borderRadius-sm);
+  background-color: var(--bg-surface);
+  color: var(--text-inverted);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button.view-type-button:hover:not(.active) {
+  background-color: var(--colorNeutralBackground3);
+  color: var(--colorNeutralForeground1);
+}
+
+.button.view-type-button.active {
+  background-color: var(--colorBrandBackground1);
+  color: var(--colorBrandForeground1);
+}
+
+.button.view-type-button.active:hover {
+  background-color: var(--colorBrandBackground1Hover);
+}
+
+/*  */
+/* --- Style cho Modal (trong trường hợp bạn muốn tùy chỉnh thêm) --- */
+/* (Các style của Modal sẽ nằm trong component Modal hoặc trong một file CSS chung) */

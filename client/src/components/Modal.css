@@ -1,0 +1,78 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--backdrop-color);
+    /* Nền mờ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: var(--z-index-modal-backdrop);
+    /* Đảm bảo modal hiển thị trên cùng */
+}
+
+.modal-content {
+    background-color: var(--bg-surface);
+    /* Sử dụng biến CSS cho màu nền */
+    color: var(--text-primary);
+    /* Sử dụng biến CSS cho màu chữ */
+    padding: 16px;
+    margin: 24px;
+    border-radius: 19px;
+    box-shadow: var(--shadow-sm);
+    width: auto;
+    /* max-width: 500px; */
+    /* Chiều rộng tối đa của modal */
+    position: relative;
+    animation: fadeIn 0.3s ease-out;
+    /* Hiệu ứng xuất hiện */
+    z-index: var(--z-index-modal);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    /* Đường viền dưới tiêu đề */
+    padding-bottom: 10px;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.modal-close-button:hover {
+    background-color: var(--bg-hover-light);
+}
+.modal-body {
+    display: flex;
+    flex: auto;
+    overflow: auto;
+}
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}

@@ -1,0 +1,120 @@
+/* Container chính */
+.dropdown-panel {
+  width: max-content;
+  color: var(--text-primary);
+  text-transform: none;
+}
+.dropdown-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 12px;
+  border-bottom: 1px solid #eee;
+  height: fit-content;
+  margin: 0px ;
+}
+
+.dropdown-title h3 {
+  margin: 8px 0;
+}
+
+.dropdown-title .clear-button {
+  background-color: var(--bg-primary-light);
+  border: none;
+  border-radius: 15%;
+  color: var(--text-primary);
+}
+.dropdown-title .clear-button:hover {
+  background-color:  var(--bg-hover-normal);
+}
+
+.icon-stack {
+  position: relative;
+  display: inline-block;
+  padding: 3px;
+}
+
+.icon-stack .icon-x-overlay {
+  position: absolute;
+  bottom: 0;
+  right: -20%;
+  pointer-events: none;
+  color: var(--danger-color);
+}
+
+/* Item trong dropdown */
+.dropdown-menu-items{
+  display: flex;
+  flex-direction: column;
+  margin-top: 6px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* width: 100%; */
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  height: 24px;
+  
+  
+}
+
+.dropdown-item:hover {
+  background-color: var(--bg-hover-normal);
+}
+
+.dropdown-item-content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  font-weight: var(--font-weight-normal);
+}
+
+.selected-field-name {
+  font-weight: 600;
+}
+.priority-number {
+  font-size: 12px;
+  margin-right: 8px;
+  /* Đảm bảo nó luôn có chiều rộng cố định để các phần tử khác không bị xê dịch */
+  min-width: 12px; 
+}
+
+/* Thêm class mới để ẩn phần tử */
+.hidden-priority {
+  visibility: hidden;
+}
+
+/* Nút thay đổi chiều sắp xếp */
+.sort-direction-toggle {
+  padding: 4px;
+  border-radius: 9999px;
+  /* rounded-full */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sort-direction-toggle:hover {
+  background-color: var(--bg-hover-light);
+}
+
+/* Label trong dropdown (khi không có cột nào) */
+.dropdown-label {
+  padding: 4px 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #6b7280;
+}
+
+li {
+  list-style: none;
+}

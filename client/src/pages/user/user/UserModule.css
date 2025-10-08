@@ -1,0 +1,399 @@
+/* Base Styles & Variables */
+
+/* Trong file CSS chính của bạn */
+
+/* Định nghĩa biến cho Light Mode (mặc định) */
+
+
+/* Áp dụng các biến cho các thành phần UI */
+.page-title, .modal-title, .form-group label {
+  color: var(--text-dark);
+}
+
+.form-control {
+  background-color: var(--bg-white);
+  color: var(--text-normal);
+  border-color: var(--border-color-normal);
+}
+
+/* ... và tương tự cho tất cả các class khác đã đề cập trước đó */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-color);
+  color: var(--text-color);
+}
+
+/* Page Layout */
+/* .page-container { */
+  /* padding: calc(2 * var(--spacing-unit)); */
+  /* max-width: 1200px; */
+/* } */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: calc(2 * var(--spacing-unit));
+}
+
+.page-title {
+  color: var(--dark-color);
+  margin: 0;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: darken(var(--primary-color), 10%);
+  border-color: darken(var(--primary-color), 10%);
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: var(--text-primary);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: darken(var(--secondary-color), 10%);
+  border-color: darken(var(--secondary-color), 10%);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+  border-color: var(--danger-color);
+}
+
+.btn-danger:hover {
+  background-color: darken(var(--danger-color), 10%);
+  border-color: darken(var(--danger-color), 10%);
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Icons (if you use an icon library) */
+.icon-plus::before {
+  content: '\002B'; /* Unicode for plus sign */
+  margin-right: 0.5rem;
+}
+
+/* Search Bar */
+.search-bar {
+  margin-bottom: var(--spacing-unit);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.search-input {
+  background-color: var(--bg-surface);
+}
+
+/* Tables */
+.table-responsive {
+  overflow-x: auto; /* Ensures table is scrollable on smaller screens */
+  margin-bottom: calc(2 * var(--spacing-unit));
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  border-radius: var(--border-radius);
+}
+
+.data-table th,
+.data-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+  background-color: var(--light-color);
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.data-table tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+/* Tags */
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--border-radius);
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.tag-info {
+  background-color: var(--info-color);
+  color: white;
+}
+
+/* Status Tags */
+.status-tag {
+  display: inline-block;
+  padding: 0.3em 0.7em;
+  border-radius: var(--border-radius);
+  font-size: 0.85em;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.status-tag-active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.status-tag-inactive {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Action Buttons within table */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Modals */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: var(--z-index-modal-backdrop);
+}
+
+.modal-content {
+  background-color: white;
+  padding: calc(2 * var(--spacing-unit));
+  border-radius: var(--border-radius);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.3);
+  width: 90%;
+  /* max-width: 500px; */
+  max-height: 90vh; /* Prevent modal from exceeding viewport height */
+  overflow-y: auto; /* Enable scrolling for long forms */
+}
+
+.modal-title {
+  margin-top: 0;
+  margin-bottom: calc(1.5 * var(--spacing-unit));
+  color: var(--dark-color);
+}
+
+/* Form Elements in Modal */
+.form-group {
+  margin-bottom: var(--spacing-unit);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--dark-color);
+}
+
+.form-row {
+  display: flex;
+  gap: var(--spacing-unit);
+  margin-bottom: var(--spacing-unit);
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0; /* Remove redundant margin */
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-unit);
+  margin-top: calc(2 * var(--spacing-unit));
+}
+
+/* --- Global Styles for radio buttons --- */
+/* Đảm bảo style của radio button nhất quán với checkbox */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md); /* Khoảng cách giữa các radio item */
+  margin-bottom: var(--spacing-md);
+  padding: var(--spacing-sm);
+  border: 1px solid var(--border-color-light);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-light);
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-normal);
+}
+
+.radio-item input[type="radio"] {
+  transform: scale(1.1); /* Phóng to radio button một chút */
+  accent-color: var(--primary-color); /* Đổi màu radio button mặc định */
+}
+
+/* --- Dark Mode specific adjustments for new elements --- */
+/* Nếu có màu sắc đặc biệt cho tag, hãy đảm bảo nó hoạt động trong Dark Mode */
+:root[data-theme="dark"] .tag-info {
+  background-color: var(--info-color); /* Sử dụng biến --info-color đã điều chỉnh cho dark mode */
+}
+/* --- New/Adjusted Styles for Roles Management --- */
+
+/* Tag for Role Type (ví dụ: Group/Personal) */
+/* Thêm các màu tag mới nếu cần cho Group/Personal */
+.tag-primary { /* Ví dụ cho type "Group" */
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.tag-secondary { /* Ví dụ cho type "Personal" */
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+/* Permission Grid Table */
+.permission-grid {
+  margin-top: var(--spacing-sm);
+  border: 1px solid var(--border-color-normal);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden; /* Quan trọng để bo góc hoạt động */
+  box-shadow: var(--shadow-sm); /* Bóng nhẹ cho bảng quyền */
+  background-color: var(--bg-white); /* Nền cho bảng quyền */
+}
+
+.perm-table { /* Dùng lại các style từ .data-table */
+  width: 100%;
+  border-collapse: collapse; /* Sử dụng collapse để các đường kẻ dính liền */
+}
+
+.perm-table th,
+.perm-table td {
+  padding: var(--spacing-md);
+  text-align: left;
+  border: 1px solid var(--border-color-light); /* Viền cho mỗi ô */
+  vertical-align: middle; /* Căn giữa nội dung theo chiều dọc */
+}
+
+.perm-table th {
+  background-color: var(--bg-light);
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.perm-table tbody tr:hover {
+  background-color: var(--bg-light); /* Màu nền khi hover */
+}
+
+.perm-table td.text-center {
+  text-align: center; /* Căn giữa ô chứa checkbox */
+}
+
+/* Checkbox inline trong bảng quyền */
+.checkbox-inline {
+  display: inline-block; /* Để label không chiếm toàn bộ chiều rộng ô */
+  margin: 0; /* Đảm bảo không có margin thừa */
+  padding: 0;
+}
+
+.checkbox-inline input[type="checkbox"] {
+  transform: scale(1.1); /* Phóng to checkbox */
+  accent-color: var(--primary-color); /* Đổi màu checkbox mặc định */
+}
+
+/* --- Dark Mode adjustments for new elements --- */
+:root[data-theme="dark"] .permission-grid {
+  background-color: var(--bg-white); /* Nền cho bảng quyền trong Dark Mode */
+  border-color: var(--border-color-normal);
+}
+
+:root[data-theme="dark"] .perm-table th {
+  background-color: var(--bg-light); /* Nền header bảng quyền trong Dark Mode */
+  color: var(--text-dark);
+  border-color: var(--border-color-light);
+}
+
+:root[data-theme="dark"] .perm-table td {
+  border-color: var(--border-color-light);
+}
+
+:root[data-theme="dark"] .perm-table tbody tr:hover {
+  background-color: #3b4d66; /* Màu nền khi hover trong Dark Mode */
+}
+
+:root[data-theme="dark"] .tag-primary {
+  background-color: var(--primary-color);
+}
+:root[data-theme="dark"] .tag-secondary {
+  background-color: var(--secondary-color);
+}

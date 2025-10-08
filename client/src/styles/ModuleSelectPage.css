@@ -1,0 +1,54 @@
+.module-select-page {
+  padding: 40px;
+  text-align: center;
+}
+
+.module-select-page h2 {
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.module-card {
+  background: var(--bg-surface);
+  border: 1px solid;
+  border-color: var(--border-normal);
+  border-radius: 12px;
+  width: 200px;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.module-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  border-color: var(--border-focus);
+}
+
+.module-card .icon {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.module-card h3 {
+  font-size: 18px;
+  margin: 0;
+}
+
+.module-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transition: transform 0.2s;
+}
+
+.module-card.disabled:hover {
+  transform: none;
+}

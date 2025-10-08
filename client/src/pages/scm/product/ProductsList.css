@@ -1,0 +1,818 @@
+.product-page-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-y: hidden;
+  padding: 0px 20px;
+  flex: auto;
+}
+
+.action-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* margin-bottom: 10px; */
+  background: var(--bg-body);
+  padding: 10px 15px;
+  border-radius: 8px;
+  flex-direction: row;
+  gap: 15px;
+  box-shadow: var(--shadow-xs);
+}
+
+.view-type-button {
+  padding: 6px 8px;
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s ease;
+
+}
+
+.view-type-button.active {
+  background-color: var(--bg-selected);
+  color: var(--primary-color);
+}
+
+.view-type-button.active {
+  background: var(--primary-color);
+  color: var(--text-inverted);
+}
+
+.view-type-button:not(.active) {
+  background: var(--bg-secondary-light);
+  color: var(--text-secondary);
+}
+
+.view-type-button:not(.active):hover {
+  background: var(--bg-active-light);
+}
+
+.action-section,
+.selected-action-section,
+.view-section {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+.new-product-button,
+.selected-action-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.view-action-section {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  gap: 6px;
+}
+
+.view-action-section .view-action-button {
+  position: relative;
+  background-color: var(--bd-body);
+  color: var(--primary-color);
+  border: none;
+  align-content: center;
+  align-items: center;
+  padding: 6px;
+}
+
+.view-action-button.focus {
+  background-color: var(--bg-hover-normal);
+}
+
+.view-action-section .view-action-button:hover {
+  background-color: var(--bg-hover-normal);
+  color: var(--primary-color);
+}
+
+.view-action-button .new-indicator {
+  position: absolute;
+  top: -12px;
+  right: -14px
+}
+
+.new-product-button {
+  background-color: var(--primary-color);
+  color: var(--text-inverted);
+}
+
+.new-product-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.add-view-button {
+  background: var(--success-hover-color);
+  color: var(--text-primary);
+}
+
+.add-view-button:hover {
+  background-color: var(--success-hover-color);
+}
+
+
+.selected-action-button {
+  background-color: var(--info-color);
+  color: var(--text-inverted);
+}
+
+.selected-action-button:hover {
+  background-color: var(--info-hover-color);
+}
+
+.more-action-section {
+  position: relative;
+  /* Để dropdown có thể position absolute */
+}
+
+.selected-actions-dropdown {
+  position: absolute;
+  top: 100%;
+  /* Đặt dưới nút */
+  left: 0;
+  background-color: var(--bg-primary-light);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-index-dropdown);
+  /* Đảm bảo nằm trên các phần tử khác */
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+  opacity: 1;
+  margin-top: 5px;
+}
+
+
+.selected-actions-dropdown button {
+  width: 100%;
+  padding: 10px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95em;
+  color: var(--text-primary);
+}
+
+.selected-actions-dropdown button:hover {
+  background-color: var(--bg-hover-normal);
+}
+
+.custom-views-dropdown-container {
+  position: relative;
+}
+
+.custom-views-dropdown {
+  position: absolute;
+  top: 100%;
+  /* Đặt dưới nút */
+  right: 0;
+  background-color: var(--bg-primary-light);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-index-dropdown);
+  /* Đảm bảo nằm trên các phần tử khác */
+  min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 0;
+  margin-top: 5px;
+  /* Khoảng cách từ nút */
+}
+
+.custom-view-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  /* flex-grow: unset; */
+}
+
+.custom-view-name {
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.custom-view-button,
+.action-view-button {
+  flex-grow: 2;
+  padding: 8px 10px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95em;
+  color: var(--text-primary);
+  border-radius: 4px;
+  /* Thêm bo tròn cho nút */
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.custom-view-button:hover {
+  background-color: var(--bg-body);
+}
+
+.custom-view-button.active {
+  background-color: var(--bg-body);
+  color: var(--primary-hover-color);
+  font-weight: bold;
+}
+
+.custom-view-button .custom-view-name {
+  margin-right: auto;
+}
+.default-pin {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: rotate(45deg)
+}
+
+.actived-view-action {
+  margin-left: 10px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.actived-view-action button {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  border: none;
+}
+
+/* Nút xóa đã có styles cơ bản, bạn có thể điều chỉnh thêm */
+.delete-custom-view:hover {
+  color: var(--danger-color);
+}
+
+.set-default-custom-view:hover {
+  color: var(--primary-hover-color)
+}
+
+.save-custom-view:hover {
+  color: var(--primary-hover-color)
+}
+
+.custom-view-function {
+  display: flex;
+  border-top: 1px solid var(--border-focus);
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.view-type-selector {
+  display: flex;
+  gap: 5px;
+}
+
+.product-gallery-container {
+  overflow: auto;
+}
+
+
+.render-product-view {
+  overflow: auto;
+  height: -webkit-fill-available;
+}
+
+.render-product-view thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-body);
+}
+
+
+
+
+.view-choice {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Gallery View */
+/* /src/pages/scm/ProductsList.css */
+
+/* ... (Các styles hiện có của bạn) ... */
+
+/* Styles cho Product Gallery View */
+.product-gallery-view-container {
+  padding: 20px;
+  background-color: #f8fafc; /* light slate background (giữ nguyên vì không có var() tương ứng) */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.product-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid, updated minmax */
+  gap: 20px;
+}
+
+.product-card {
+  background-color: var(--bg-card); /* Đã đổi sang var() */
+  border: 1px solid var(--border-light); /* Đã đổi sang var() */
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs); /* Đã đổi sang var() */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Merged transitions */
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Updated from -2px to -5px */
+  box-shadow: var(--shadow-sm); /* Đã đổi sang var() */
+}
+
+.product-card.selected-card {
+  border-color: var(--border-focus); /* Đã đổi sang var() */
+  box-shadow: var(--shadow-sm); /* Đã đổi sang var() */
+}
+
+.product-card-header {
+  display: flex;
+  justify-content: space-between; /* Kept for alignment of checkbox/status */
+  align-items: center;
+  padding: 15px; /* Updated padding */
+  background-color: #f0f4f8; /* Giữ nguyên vì không có var() tương ứng */
+  border-bottom: 1px solid var(--border-light); /* Đã đổi sang var() */
+}
+
+.product-checkbox {
+  transform: scale(1.2); /* Phóng to checkbox một chút */
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 9999px; /* Bo tròn hoàn toàn */
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge--active {
+  background-color: var(--success-color); /* Đã đổi sang var() */
+  color: var(--text-inverted); /* Đã đổi sang var() */
+}
+
+.status-badge--inactive {
+  background-color: #f8d7da; /* Đã đổi sang màu bạn cung cấp */
+  color: #721c24; /* Đã đổi sang màu bạn cung cấp */
+}
+
+.product-image-placeholder {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fdfdfe; /* Giữ nguyên vì không có var() tương ứng */
+}
+
+.product-image-placeholder img {
+  width: 100%; /* Updated to 100% width */
+  height: 180px; /* Fixed height for consistent image size */
+  object-fit: cover; /* Ensures image covers the area */
+  margin-bottom: 10px; /* Added margin */
+  border-radius: 0.25rem; /* Rounded corners for image */
+}
+
+.product-details {
+  padding: 15px;
+  flex-grow: 1; /* Cho phép phần chi tiết chiếm không gian còn lại */
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-primary); /* Đã đổi sang var() */
+  margin-bottom: 5px;
+}
+
+.product-wrin,
+.product-vendor,
+.product-supplier {
+  font-size: 0.9rem;
+  color: var(--text-primary); /* Đã đổi sang var() */
+  margin-bottom: 3px;
+}
+
+/* Styles cho Group Headers trong Gallery View */
+.gallery-group-container {
+  margin-bottom: 30px; /* Khoảng cách giữa các nhóm chính */
+  border: 1px solid var(--border-light); /* Đã đổi sang var() */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f1f5f9; /* Giữ nguyên vì không có var() tương ứng */
+}
+
+.gallery-group {
+  margin-bottom: 20px; /* Khoảng cách giữa các nhóm con */
+}
+
+.gallery-group:last-child {
+  margin-bottom: 0;
+}
+
+.gallery-group-header {
+  background-color: #e2e8f0; /* Giữ nguyên vì không có var() tương ứng */
+  padding: 15px 20px;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary); /* Đã đổi sang var() */
+  border-bottom: 1px solid var(--border-light); /* Đã đổi sang var() */
+}
+
+/* Thụt lề cho các cấp độ nhóm sâu hơn */
+.group-level-0 > .gallery-group > .gallery-group-header {
+  padding-left: 20px;
+}
+.group-level-1 > .gallery-group > .gallery-group-header {
+  background-color: #dbeafe; /* Giữ nguyên vì không có var() tương ứng */
+  color: #1e40af; /* Giữ nguyên vì không có var() tương ứng */
+  padding-left: 40px;
+}
+.group-level-2 > .gallery-group > .gallery-group-header {
+  background-color: #e0f2f7; /* Giữ nguyên vì không có var() tương ứng */
+  color: #0e7490; /* Giữ nguyên vì không có var() tương ứng */
+  padding-left: 60px;
+}
+
+/* Đảm bảo lưới sản phẩm nằm trong nhóm */
+.gallery-group .product-gallery-grid {
+  padding: 20px; /* Padding bên trong mỗi nhóm */
+  background-color: var(--bg-card); /* Đã đổi sang var() */
+}
+
+.loading-state, .empty-state {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.1rem;
+  color: var(--text-secondary); /* Đã đổi sang var() */
+}
+
+
+/* Styles chung cho Overlay Panels (Filter, Group, Sort) */
+.right-panel {
+  /* position: fixed;
+  top: 0;
+  right: 0; */
+  min-width: 280px;
+  /* Chiều rộng của panel */
+  height: 100%;
+  background-color: var(--bg-surface);
+  box-shadow: var(--shadow-lg);
+  /* box-shadow:  -2px 0 8px rgba(0,0,0,0.1); */
+  /* z-index: 20; */
+  /* Đảm bảo panel nằm trên các phần tử khác */
+  display: flex;
+  flex-direction: column;
+  /* transform: translateX(100%);  */
+  transition: transform 0.3s ease-out;
+  /* Hiệu ứng trượt */
+}
+
+/* Khi panel mở */
+.right-panel.filter-panel[style*="display: block"],
+.right-panel.group-panel[style*="display: block"],
+.right-panel.sort-panel[style*="display: block"] {
+  transform: translateX(0);
+  /* Hiện panel */
+}
+
+/* Header của Panel */
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  background-color: var(--bg-body);
+}
+
+.panel-header h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: var(--text-primary);
+}
+
+.close-panel-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.close-panel-button:hover {
+  background-color: var(--bg-hover-normal);
+}
+
+/* Nội dung Panel */
+.panel-content {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  /* Cho phép cuộn nếu nội dung dài */
+}
+
+.filter-field-group {
+  margin-bottom: 15px;
+}
+
+.filter-field-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.filter-field-group input[type="text"],
+.filter-field-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+/* Footer của Panel (chứa nút Apply/Clear) */
+.panel-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 15px 20px;
+  border-top: 1px solid #eee;
+  background-color: var(--bg-body);
+}
+
+.panel-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.apply-button {
+  background-color: var(--primary-color);
+  color: var(--text-inverted);
+}
+
+.apply-button:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.clear-button {
+  background-color: var(--secondary-color);
+  color: var(--text-inverted);
+}
+
+.clear-button:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.cancel-button {
+  background-color: var(--secondary-color);
+  color: var(--text-inverted);
+}
+
+.cancel-button:hover {
+  background-color: var(--secondary-hover-color);
+}
+
+.filter-condition-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.filter-condition-group select,
+.filter-condition-group input[type="text"] {
+  flex: 1; /* Cho phép các input và select co giãn */
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.filter-condition-group select {
+  min-width: 100px; /* Đảm bảo dropdown đủ rộng */
+}
+
+.filter-condition-group input[type="text"] {
+  min-width: 80px;
+}
+
+.remove-condition-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.remove-condition-button:hover {
+  background-color: #c82333;
+}
+
+.add-condition-button {
+  background-color: #17a2b8; /* Màu xanh lam */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  transition: background-color 0.2s ease;
+}
+
+.add-condition-button:hover {
+  background-color: #138496;
+}
+
+
+/* --- TABLE STYLES --- */
+.product-table-responsive {
+  overflow-x: auto; /* Cho phép cuộn ngang nếu bảng quá rộng */
+  background-color: var(--bg-card);
+  border-radius: 8px;
+  box-shadow: var(--shadow-xs);
+  margin-top: 20px; /* Khoảng cách với các nút hành động */
+  height: -webkit-fill-available;
+}
+
+.product-data-table {
+  width: 100%;
+  border-collapse: collapse; /* Loại bỏ khoảng cách giữa các ô */
+  font-size: 0.9em;
+  color: var(--text-primary);
+}
+
+.data-table__header {
+  background-color: var(--bg-header);
+  border-bottom: 1px solid var(--border-light);
+  position: sticky; /* Giữ header dính khi cuộn */
+  top: 0;
+  z-index: 2; /* Đảm bảo header nằm trên các hàng dữ liệu và nhóm */
+}
+
+.data-table__th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  /* display: flex; */
+  /* flex-direction: row; */
+}
+
+.data-table__th.select-column {
+  width: 40px; /* Chiều rộng cố định cho cột checkbox */
+  /* text-align: center; */
+}
+
+.data-table__td {
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-light);
+  white-space: nowrap; /* Ngăn chặn văn bản xuống dòng */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu ba chấm nếu quá dài */
+}
+  
+
+/* --- ROW STYLES --- */
+.data-table__row {
+  background-color: var(--bg-card);
+  transition: background-color 0.2s ease;
+}
+
+.data-table__row:hover {
+  background-color: var(--bg-hover);
+}
+
+.data-table__row.selected-row {
+  background-color: var(--bg-selected);
+}
+
+/* --- STATUS BADGE (Re-using from ProductsList.jsx) --- */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.status-badge--active {
+  background-color: var(--success-color);
+  color: var(--text-inverted);
+}
+
+.status-badge--inactive {
+  background-color: #f8d7da; /* Giữ nguyên màu bạn cung cấp */
+  color: #721c24; /* Giữ nguyên màu bạn cung cấp */
+}
+
+/* --- EMPTY / LOADING STATE --- */
+.data-table__empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* --- GROUP HEADER STYLES --- */
+.group-header-row {
+  background-color: var(--bg-group-header); /* Màu nền cho tiêu đề nhóm */
+  font-weight: bold;
+  border-bottom: 2px solid var(--border-group-header);
+  position: sticky; /* Giữ tiêu đề nhóm dính khi cuộn */
+  top: 0; /* Hoặc điều chỉnh nếu có header cố định */
+  z-index: 1; /* Đảm bảo tiêu đề nhóm nằm trên các hàng dữ liệu */
+  cursor: pointer; /* Con trỏ dạng bàn tay để chỉ ra có thể click */
+}
+
+.group-header-row td {
+  padding: 12px 15px;
+  color: var(--text-group-header); /* Màu chữ cho tiêu đề nhóm */
+  font-size: 1.1em;
+}
+
+.group-header-title {
+  margin: 0;
+  display: flex; /* Để biểu tượng và văn bản nằm trên cùng một hàng */
+  align-items: center; /* Căn giữa biểu tượng và văn bản */
+  gap: 8px; /* Khoảng cách giữa biểu tượng và văn bản */
+}
+
+/* Thụt lề cho các cấp độ nhóm sâu hơn */
+/* Sử dụng biến CSS --group-level được truyền từ JS */
+.group-header-row td {
+    padding-left: calc(15px + var(--group-level, 0) * 20px); /* Tăng padding theo cấp độ nhóm */
+}
+
+/* Tùy chỉnh màu sắc cho các cấp độ nhóm khác nhau (tùy chọn) */
+/* Bạn có thể định nghĩa thêm các biến CSS nếu muốn */
+/*
+.group-level-0 .group-header-row {
+  background-color: var(--bg-group-level-0);
+  color: var(--text-group-level-0);
+}
+.group-level-1 .group-header-row {
+  background-color: var(--bg-group-level-1);
+  color: var(--text-group-level-1);
+}
+*/
