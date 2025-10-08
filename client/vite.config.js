@@ -5,6 +5,6 @@ export default defineConfig({
   plugins: [react()],
   base: "./",
   server: {
-    allowedHosts: ['crocoda.qzz.io', 'crocoda-dev.vercel.app']
+    allowedHosts: ['crocoda.qzz.io', 'crocoda-dev.vercel.app', 'http://localhost:5173/']
   }
 })
