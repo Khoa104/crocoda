@@ -1,5 +1,6 @@
 client/.gitignore
 server/.env
+.gitignore
 # ===== Node modules =====
 node_modules/
 server/node_modules/
