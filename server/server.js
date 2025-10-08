@@ -14,7 +14,8 @@ app.use(cookieParser());
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://crocoda.qzz.io"
+  "https://crocoda.qzz.io",
+  "https://crocoda-dev.vercel.app"
 ];
 
 app.use(
