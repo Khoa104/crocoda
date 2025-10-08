@@ -47,13 +47,15 @@ router.post("/login", async (req, res) => {
     res.cookie("refreshToken", refreshToken, {
       httpOnly: true,
       secure: true,
-      sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+      //sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+      sameSite: "Lax", //"Lax",   // khác site
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
     });
     res.cookie("accessToken", accessToken, {
       httpOnly: true,       // Không cho JS truy cập → chống XSS
       secure: true,         // Bắt buộc HTTPS trong production
-      sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+      //sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+      sameSite: "Lax", //"Lax",   // khác site
       maxAge: 45 * 60 * 1000 // 1 giờ
     });
     res.json({ accessToken, user: userPayload });
@@ -100,13 +102,15 @@ router.post("/refresh-token", async (req, res) => {
       res.cookie("refreshToken", newRefreshToken, {
         httpOnly: true,
         secure: true, // Đảm bảo true trong production (HTTPS)
-        sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+        //sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+        sameSite: "Lax", //"Lax",   // khác site
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 ngày
       });
       res.cookie("accessToken", newAccessToken, {
         httpOnly: true,       // Không cho JS truy cập → chống XSS
         secure: true,         // Bắt buộc HTTPS trong production
-        sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+        //sameSite: "Strict", //"Strict",   // Bảo vệ chống CSRF
+        sameSite: "Lax", //"Lax",   // khác site
         maxAge: 45 * 60 * 1000 // 1 giờ
       });
       res.json({ accessToken: newAccessToken, user: userPayload });
