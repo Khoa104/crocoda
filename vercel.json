@@ -3,10 +3,12 @@
     {
       "src": "client/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "client/dist" }
+      "config": {
+        "distDir": "client/dist"
+      }
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
+  "routes": [
+    { "src": "/(.*)", "dest": "client/dist/index.html" }
   ]
 }
