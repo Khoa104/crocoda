@@ -130,8 +130,13 @@ router.post("/logout", async (req, res) => {
     await supabase.from("users").update({ refresh_token: null }).eq("refresh_token", refreshToken);
   }
   // Xóa Cookie
-  res.clearCookie("refreshToken");
-  res.send("Logged out");
+  res.clearCookie("refreshToken", {
+    httpOnly: true,
+    secure: true,         // bắt buộc nếu FE là HTTPS (Vercel)
+    sameSite: "none",     // cho phép xóa cookie cross-site
+    path: "/"             // khớp với path khi set cookie
+  });
+  res.status(200).send("Logged out");
   console.log('User Logout Successful');
 });
 
